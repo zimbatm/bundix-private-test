@@ -1,0 +1,20 @@
+GIT
+  remote: git@github.com:zimbatm/jsonpp.git
+  revision: 9629c0057b63fd3b3b26fdc21fbfe548ae8c6535
+  specs:
+    jsonpp (1.2.1)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    eventmachine (1.0.9.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  eventmachine
+  jsonpp!
+
+BUNDLED WITH
+   1.11.2
