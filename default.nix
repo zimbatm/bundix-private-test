@@ -1,4 +1,4 @@
-{ stdenv, bundlerEnv, ruby_2_2 }:
+{ stdenv, bundlerEnv, ruby_2_2, defaultGemConfig, openssl }:
 stdenv.mkDerivation rec {
   name = "private-bundix";
 
@@ -8,6 +8,13 @@ stdenv.mkDerivation rec {
     gemfile = ./Gemfile;
     lockfile = ./Gemfile.lock;
     gemset = ./gemset.nix;
+    gemConfig = defaultGemConfig // {
+      # Setting our own overrides. These should be imported into the
+      # defaultGemConfig on the longer term.
+      eventmachine = attrs: {
+        buildInputs = [ openssl ];
+      };
+    };
   };
 
   src = ./.;
